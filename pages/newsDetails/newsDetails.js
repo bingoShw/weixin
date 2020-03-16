@@ -1,5 +1,5 @@
 // pages/newsDetails/newsDetails.js
-const detailsApi = require("../../api/newsDetails.js")
+const newsApi = require("../../api/news.js")
 
 Page({
 
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    detailsApi.newsDetails(options.id).then(res => {
+    newsApi.newsDetails(options.id).then(res => {
       this.setData({
         title:res.data.data.title,
         articleSource: res.data.data.articleSource,

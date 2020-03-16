@@ -17,6 +17,7 @@
       icon="envelop-o"
       placeholder="修改邮箱"
       bindinput="getEmail"
+      type="email"
     />
     <van-field
       clearable
@@ -24,6 +25,7 @@
       icon="phone-o"
       placeholder="修改号码"
       bindinput="getPhonenumber"
+      type="phone"
     />
   </van-cell-group>
   <view class="complete">

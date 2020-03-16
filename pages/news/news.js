@@ -1,6 +1,5 @@
 // pages/news/news.js
 const newsApi = require("../../api/news.js")
-const bannerApi = require("../../api/swiper.js")
 
 Page({
 
@@ -38,11 +37,11 @@ Page({
         isOk:true
       })
     }),
-      bannerApi.getBanner(1,5).then(res => {
-        this.setData({
-          bannerList:res.data.rows
-        })
+    newsApi.getBanner(1,5).then(res => {
+      this.setData({
+        bannerList:res.data.rows
       })
+    })
   },
 
   /**
@@ -113,6 +112,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return{
+      title:"实时新闻",
+      imageUrl: "/assets/images/news1.png",
+      // 当前页面 path ，必须是以 / 开头的完整路径
+      path: "/pages/my/my"
+    }
   }
 })

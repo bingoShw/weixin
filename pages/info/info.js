@@ -1,5 +1,5 @@
 // pages/info/info.js
-const infoApi = require("../../api/info.js")
+const loginApi = require("../../api/login.js")
 
 Page({
 
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     infoApi.info().then(res => {
+    loginApi.info().then(res => {
       this.setData({
         userName: res.data.data.userName,
         email: res.data.data.email,

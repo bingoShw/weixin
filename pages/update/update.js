@@ -1,5 +1,5 @@
 // pages/update/update.js
-const updateApi = require("../../api/update.js")
+const loginApi = require("../../api/login.js")
 
 Page({
 
@@ -32,7 +32,7 @@ Page({
       email: this.data.email,
       phonenumber: this.data.phonenumber
     }
-    updateApi.update(options).then(res => {
+    loginApi.update(options).then(res => {
       if(res.data.code === 0){
         wx.showToast({
           title: '修改成功',

@@ -1,6 +1,5 @@
 // pages/addPosts/addPosts.js
-const categoryApi = require("../../api/category.js")
-const releaseApi = require("../../api/addPosts.js")
+const postsApi = require("../../api/posts.js")
 
 Page({
 
@@ -41,7 +40,6 @@ Page({
         // 上传完成需要更新 fileList
         const { fileList = [] } = JSON.parse(res.data);
         fileList.push({ ...file, url: JSON.parse(res.data).url });
-        debugger
         that.setData({ 
           fileList,
           coverImgUrl:JSON.parse(res.data).url
@@ -67,22 +65,34 @@ Page({
   },
   // 发布
   release:function(e){
-    debugger
     const options = {
       categoryId: this.data.categoryId,
       title: this.data.title,
       content: this.data.content,
       coverImgUrl: this.data.coverImgUrl
     }
-    releaseApi.addPosts(options).then(res => {
-      debugger
+    postsApi.addPosts(options).then(res => {
+      if(res.data.code === 0){
+        wx.showToast({
+          title: '登录成功',
+          icon: 'success'
+        })
+        wx.switchTab({
+          url: '/pages/posts/posts',
+        })
+      }else{
+        wx.showToast({
+          title: res.data.msg,
+          icon:"none"
+        })
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    categoryApi.category().then(res => {
+    postsApi.category().then(res => {
       this.setData({
         categoryList: res.data.rows
       })

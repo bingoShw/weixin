@@ -1,7 +1,5 @@
 // pages/postsDetails/postsDetails.js
-const detailsApi = require("../../api/postsDetails.js")
-const commentApi = require("../../api/comment.js")
-const commentListApi = require("../../api/commentList.js")
+const postsApi = require("../../api/posts.js")
 
 Page({
 
@@ -9,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tiele:"",
+    title:"",
     avatar:"",
     userName:"",
     coverImgUrl:"",
@@ -23,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    detailsApi.postsDetails(options.id).then(res => {
+    postsApi.postsDetails(options.id).then(res => {
       this.setData({
         postsId:options.id,
         title: res.data.data.title,
@@ -33,7 +31,7 @@ Page({
         intro: res.data.data.intro
       })
     })
-    commentListApi.commentList(options.id).then(res => {
+    postsApi.commentList(options.id).then(res => {
       this.setData({
         commentList:res.data.rows
       })
@@ -42,7 +40,6 @@ Page({
 
   // 评论
   content:function(e){
-    debugger
     this.setData({
       message: e.detail
     })
@@ -50,8 +47,7 @@ Page({
   comment: function (e) {
     const postsId = this.data.postsId;
     const message = this.data.message
-    commentApi.postsComment(postsId, message).then(res => {
-      debugger
+    postsApi.postsComment(postsId, message).then(res => {
       if(res.data.code !== 0){
           wx.showToast({
             title: '请先登录',
@@ -62,6 +58,11 @@ Page({
               url: '/pages/my/my',
             })
           }, 1000)
+      }else{
+        wx.showToast({
+          title: '评论成功',
+          icon: 'success'
+        })
       }
     })
   },
@@ -112,6 +113,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return{
+      title:"帖子",
+      imageUrl: this.data.coverImgUrl
+    }
   }
 })
