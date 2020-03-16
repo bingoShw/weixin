@@ -1,0 +1,8 @@
+<!--pages/info/info.wxml-->
+<view class="info">
+  <van-cell-group>
+    <van-cell title="用户名" value="{{userName}}" />
+    <van-cell title="邮箱" value="{{email}}" />
+    <van-cell title="电话" value="{{phonenumber}}" />
+  </van-cell-group>
+</view>

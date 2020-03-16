@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/news/news",
+    "pages/posts/posts",
+    "pages/my/my",
+    "pages/addPosts/addPosts",
+    "pages/newsDetails/newsDetails",
+    "pages/postsDetails/postsDetails",
+    "pages/info/info",
+    "pages/update/update",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "weChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#dcdcdc"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1e90ff",
+    "list": [
+      {
+        "pagePath": "pages/news/news",
+        "text": "首页",
+        "iconPath": "./assets/images/news.png",
+        "selectedIconPath": "./assets/images/news1.png"
+      },
+      {
+        "pagePath": "pages/posts/posts",
+        "text": "帖子",
+        "iconPath": "./assets/images/posts.png",
+        "selectedIconPath": "./assets/images/posts1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./assets/images/my.png",
+        "selectedIconPath": "./assets/images/my1.png"
+      }
+    ]
+  },
+  "plugins": {
+    "htmltowxml": {
+      "version": "1.4.0",
+      "provider": "wxa51b9c855ae38f3c"
+    }
+  }
+}

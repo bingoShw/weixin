@@ -1,0 +1,30 @@
+<!--pages/posts/posts.wxml-->
+
+<!-- 帖子列表 -->
+<view class="postsBox">
+  <view class="add" bindtap="addPosts">
+    <van-icon name="plus" class="icon" color="white" size="20px"/>
+  </view>
+  <van-skeleton title avatar row="3"  wx:for="{{[1,1,1,1]}}" wx:if="{{!isOk}}"/>
+  <van-cell-group wx:if="{{isOk}}" wx:for="{{postsList}}" wx:key="{{item.postsId}}"  bind:tap="toDetails" data-id="{{item.postsId}}">
+    <van-cell>
+      <view class="title">
+        {{item.title}}
+      </view>
+      <view class="uesr">
+        <image class="avatar" src="{{item.avatar}}"></image>
+        <text>{{item.userName}}</text>
+      </view>
+      <view class="content">
+        <view class="intro">
+          {{item.intro}}
+        </view>
+        <view class="pic">
+          <image src="{{item.coverImgUrl}}"></image>
+        </view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <van-divider contentPosition="center" wx:if="{{!isFinish}}">没有更多了</van-divider>
+</view>
+

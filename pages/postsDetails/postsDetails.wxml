@@ -1,0 +1,40 @@
+<!--pages/postsDetails/postsDetails.wxml-->
+<view class="newsBox">
+  <view class="title">{{title}}</view>
+  <view class="user">
+    <image class="avatar" src="{{avatar}}"></image>
+    <view class="userName">{{userName}}</view>
+  </view>
+  <view class="pic">
+    <image src="{{coverImgUrl}}"></image>
+  </view>
+  <view class="intro">{{intro}}</view>
+  <view class="commentList">
+  全部评论
+    <view wx:for="{{commentList}}" wx:key="{{commentList.commentId}}" class="commentContent">
+      <van-cell-group>
+        <van-cell>
+          <image src="{{item.avatar}}" class="commenAvatar"></image>
+          <text>{{item.userName}}</text>
+          <view>{{item.commentContent}}</view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="comment">
+    <van-cell-group>
+      <van-field
+        value="{{message}}"
+        center
+        clearable
+        label="评论"
+        placeholder="请输入评论"
+        use-button-slot
+        bind:input="content"
+      >
+        <van-button slot="button" size="small" type="info" bindtap="comment" >发送</van-button>
+      </van-field>
+  </van-cell-group>
+  </view>
+</view>
+

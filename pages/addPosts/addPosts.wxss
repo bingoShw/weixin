@@ -1,0 +1,9 @@
+/* pages/addPosts/addPosts.wxss */
+.categoryBox {
+  width: 100%;
+  height: auto
+}
+
+.category {
+  margin: 10px
+}

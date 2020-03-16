@@ -1,0 +1,29 @@
+<!--pages/my/my.wxml-->
+<view class="myBox">
+  <!-- 登录前 -->
+  <view class="login" wx:if="{{!isLogin}}">
+    <view class="avatar" bind:tap="login">{{msg}}</view>
+    <view class="userName">Hi!</view>
+    <view class="enter">
+      <input type="text" bindinput="getUserName" placeholder="用户名"></input>
+      <input password="true" bindinput="getPassword" placeholder="密码"></input>
+    </view>
+  </view>
+  <!-- 登录后 -->
+  <view class="avatar" bind:tap="login" wx:if="{{isLogin}}">
+    <image src="{{avatar}}"></image>
+  </view>
+  <view class="userName" wx:if="{{isLogin}}">{{name}}</view>
+  <view class="data" wx:if="{{isLogin}}">
+    <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" class="modify">
+      <view slot="left" class="look" bindtap="look">查看</view>
+      <van-cell-group>
+        <van-cell title="个人资料"/>
+      </van-cell-group>
+      <view slot="right" bindtap="update" class="alter">修改</view>
+    </van-swipe-cell>
+  </view>
+  <view class="logout">
+    <van-button round type="info" bindtap="logout" wx:if="{{isLogin}}">退出登录</van-button>
+  </view>
+</view>

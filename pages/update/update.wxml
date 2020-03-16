@@ -1,0 +1,33 @@
+<!--pages/update/update.wxml-->
+<view class="updateBox">
+  <!-- <input bindinput="getUserName" placeholder="username"></input>
+  <input bindinput="getEmail" placeholder="email"></input>
+  <input bindinput="getPhonenumber" placeholder="phonenumber"></input> -->
+  <van-cell-group>
+    <van-field
+      clearable
+      label="用户名"
+      icon="user-o"
+      placeholder="修改用户名"
+      bindinput="getUserName"
+    />
+    <van-field
+      clearable
+      label="邮箱"
+      icon="envelop-o"
+      placeholder="修改邮箱"
+      bindinput="getEmail"
+    />
+    <van-field
+      clearable
+      label="电话"
+      icon="phone-o"
+      placeholder="修改号码"
+      bindinput="getPhonenumber"
+    />
+  </van-cell-group>
+  <view class="complete">
+    <van-button plain type="primary" bindtap="cancel">取消</van-button>
+    <van-button plain type="info" bindtap="submit">完成</van-button>
+  </view>
+</view>

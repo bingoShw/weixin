@@ -1,0 +1,8 @@
+<!--pages/newsDetails/newsDetails.wxml-->
+<view class="newsBox">
+  <view class="source">{{articleSource}}</view>
+  <view class="main">
+    <view class="title">{{title}}</view>
+    <htmltowxml text="{{content}}" class="content"></htmltowxml>
+  </view>
+</view>
