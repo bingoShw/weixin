@@ -1,0 +1,49 @@
+<!--pages/my/my.wxml-->
+<view class="myBox">
+  <!-- 登录前 -->
+  <view class="login" wx:if="{{!isLogin}}">
+    <view>
+      <view class="avatar">
+      <image src="../../assets/images/logo.jpg"></image>
+    </view>
+    <view class="userName">Hi!</view>
+    </view>
+    <view class="enter">
+      <input type="text" bindinput="getUserName" placeholder="用户名"></input>
+      <input password="true" bindinput="getPassword" placeholder="密码"></input>
+      <view class="remember">
+        <van-checkbox value="{{isRemember}}" bind:change="onRememberChange">记住我</van-checkbox>
+      </view>
+      <van-button type="info" size="large" bind:tap="login">登录</van-button>
+    </view>
+  </view>
+  <!-- 登录后 -->
+  <block wx:else>
+    <view>
+      <view class="avatar" bind:tap="login">
+        <image src="{{avatar}}"></image>
+      </view>
+      <view class="userName">{{userName}}</view>
+    </view>
+    <view class="data">
+      <van-swipe-cell right-width="{{ 130 }}"  class="modify">
+        <van-cell-group>
+          <van-cell title="个人资料"/>
+        </van-cell-group>
+        <view slot="right">
+          <view bindtap="update" class="alter">修改</view>
+          <view class="look" bindtap="look">查看</view>
+        </view>
+      </van-swipe-cell>
+      <van-swipe-cell right-width="{{ 65 }}">
+        <van-cell-group>
+          <van-cell title="我的帖子"/>
+        </van-cell-group>
+        <view slot="right" class="look" bindtap="lookPosts">查看</view>
+      </van-swipe-cell>
+    </view>
+    <view class="logout">
+      <van-button round type="info" bindtap="logout">退出登录</van-button>
+    </view>
+  </block>
+</view>

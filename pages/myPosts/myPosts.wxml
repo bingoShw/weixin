@@ -1,0 +1,9 @@
+<!--pages/myPosts/myPosts.wxml-->
+<view>
+  <van-cell-group wx:for="{{myPostsList}}" wxs:key="{{item.postsId}}" class="myPosts">
+    <van-cell is-link bindtap="more" data-id="{{item.postsId}}">
+      <view class="title">{{item.title}}</view>
+      <view class="sendTime">{{item.sendTime}}</view>
+    </van-cell>
+  </van-cell-group>
+</view>

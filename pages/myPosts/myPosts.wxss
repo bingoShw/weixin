@@ -1,0 +1,19 @@
+/* pages/myPosts/myPosts.wxss */
+.myPosts {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+
+.title {
+  color: #333333;
+  font-size: 15px;
+  text-align: left;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+
+.sendTime{
+  font-size: 13px
+}

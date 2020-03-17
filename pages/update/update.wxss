@@ -1,0 +1,9 @@
+/* pages/update/update.wxss */
+.complete {
+  display: flex
+}
+
+van-button {
+  margin: 20px auto
+}
+
