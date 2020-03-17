@@ -1,0 +1,17 @@
+<!--pages/addPosts/addPosts.wxml-->
+<view class="box">
+  <van-cell-group>
+    <van-field
+      clearable
+      label="标题"
+      placeholder="请输入标题"
+      bindinput="getTitle"
+    />
+  </van-cell-group>
+  <textarea placeholder="输入内容吧" bindinput="getContent"></textarea>
+  <van-uploader file-list="{{fileList}}" bind:after-read="afterRead"/>
+  <view class="categoryBox">
+    <van-tag class="category" plain type="primary" wx:for="{{categoryList}}" wx:key="{{item.categoryId}}" bindtap="getCategoryId" data-id="{{item.categoryId}}">{{item.name}}</van-tag>
+  </view>
+  <van-button round type="info" bindtap="release">发布</van-button>
+</view>

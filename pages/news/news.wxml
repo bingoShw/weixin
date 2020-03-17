@@ -1,0 +1,42 @@
+<!--pages/news/news.wxml-->
+<view class="box">
+
+  <!-- 轮播图 --> 
+  <view class="bannerBox">
+    <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}">
+      <swiper-item wx:for="{{bannerList}}" wx:key="{{item.articleId}}" bind:tap="toDetails" data-id="{{item.articleId}}">
+        <image  class="bannerImg" src="{{item.bannerImgUrl}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 新闻列表 -->
+  <view class="cellBox">
+  <van-skeleton title row="3"  wx:for="{{[1,1,1,1]}}" wx:if="{{!isOk}}"/>
+    <van-cell-group class="cell" wx:for="{{list}}"wx:if="{{isOk}}" wx:key="{{item.artcileId}}">
+      <van-cell>
+      <view class="top">
+        <view class="source">
+          {{item.articleSource}}
+        </view>
+        <view class="more" bind:tap="toDetails" data-id="{{item.articleId}}">
+          更多
+          <van-icon name="arrow" class="icon"/>
+        </view>
+      </view>
+      <view class="middle">
+        <view class="title">
+          {{item.title}}
+        </view>
+        <view class="pic">
+          <image src="{{item.coverImgUrl}}"></image>
+        </view>
+      </view>
+      <view class="bottom">
+        {{item.sendTime}}
+      </view>
+      </van-cell>
+    </van-cell-group>
+  </view>
+  <van-divider contentPosition="center" wx:if="{{!isFinish}}">没有更多了</van-divider>
+</view>

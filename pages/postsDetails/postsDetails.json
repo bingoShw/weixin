@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "htmltowxml": "plugin://htmltowxml/view",
+    "van-button": "../../miniprogram_npm/@vant/weapp/button/index",
+    "van-field": "../../miniprogram_npm/@vant/weapp/field/index",
+    "van-cell-group": "../../miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-cell": "../../miniprogram_npm/@vant/weapp/cell/index"
+  },
+  "navigationBarTitleText": "帖子详情"
+}
